@@ -47,7 +47,7 @@ export default function Header() {
          {/* Logo Section */}
         <Link href="/" className="flex items-center space-x-1">
         <Image
-            src="/MUJ_Logo.png"
+            src="/MUJ_LOGO.png"
             alt="MUJ Logo"
             width={60}
             height={40}
