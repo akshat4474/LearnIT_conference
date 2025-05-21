@@ -53,7 +53,7 @@ export default function Header() {
             height={40}
         />
         <Image
-            src={hasScrolled ? "/MUJ_Logo_text.webp" : "/MUJ_Logo_text_black.webp"}
+            src={hasScrolled ? "/MUJ_Logo_text.webp" : "/MUJ_logo_text_black.webp"}
             alt="MUJ Logo Text"
             width={140}
             height={32}
