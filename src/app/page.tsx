@@ -7,12 +7,14 @@ import Hero from '../../UI/Design 3/Hero';
 // import Footer from '../../UI/Design 1/Footer';
 // import Footer from '../../UI/Design 2/Footer';
 import Footer from '../../UI/Design 3/Footer';
+import About from '../../UI/Design 3/About';
 
 export default function HomePage() {
   return (
     <main>
       <Header />
       <Hero/>
+      <About/>
       <Footer/>
     </main>
   );

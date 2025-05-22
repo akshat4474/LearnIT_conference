@@ -16,7 +16,7 @@ export default function Hero() {
       />
 
       {/* Dark overlay */}
-      {/* <div className="absolute inset-0 bg-black/30 z-10" /> */}
+      <div className="absolute inset-0 bg-black/30 z-10" />
 
       {/* Hero content */}
       <div className="relative z-20 flex flex-col items-start justify-center h-full px-6 sm:px-12 lg:px-32 text-white">
@@ -40,6 +40,18 @@ export default function Hero() {
             Submit Abstract
           </Link>
         </div>
+      </div>
+      {/* Scroll down indicator */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+        <svg
+          className="w-6 h-6 text-white opacity-75"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
       </div>
     </section>
   );

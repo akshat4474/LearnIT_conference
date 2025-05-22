@@ -7,10 +7,15 @@ import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/schedule', label: 'Schedule' },
-  { href: '/speakers', label: 'Speakers' },
-  { href: '/venue', label: 'Venue' },
+  { href: '/CFP', label: 'CFP' },
+  { href: '/Publication', label: 'Publication' },
+  { href: '/Committee', label: 'Committee' },
+  { href: '/Invitees', label: 'Invitees' },
+  { href: '/Agenda', label: 'Agenda' },
+  { href: '/Gallery', label: 'Gallery' },
+  { href: '/Venue', label: 'Venue' },
   { href: '/register', label: 'Register' },
+  { href: '/Contact Us', label: 'Contact Us' },
 ];
 
 export default function Header() {
