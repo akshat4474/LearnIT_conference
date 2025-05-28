@@ -69,7 +69,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-1">Your Phone Number</label>
+              <label htmlFor="phone" className="block text-sm font-medium mb-1">Your Phone Number(+91)</label>
               <input id="phone" name="phone" type="tel" pattern="[0-9+ ]{7,15}" className="w-full bg-white border border-gray-300 p-3 rounded placeholder-gray-500" />
             </div>
 
