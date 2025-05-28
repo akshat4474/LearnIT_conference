@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 const resend = new Resend(process.env.SECRET_RESEND_API_KEY!);
 
-// HTML sanitization
+// Sanitize HTML input
 function escapeHTML(text: string) {
   return text
     .replace(/&/g, "&amp;")
@@ -13,7 +13,7 @@ function escapeHTML(text: string) {
     .replace(/'/g, "&#039;");
 }
 
-// Basic malicious pattern check (XSS, JS events, etc.)
+// Simple XSS / injection detection
 function containsMaliciousContent(text: string) {
   const maliciousPattern = /<script.*?>|<\/script>|javascript:|on\w+=|<iframe|<object|<embed/i;
   return maliciousPattern.test(text);
@@ -37,7 +37,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Check for potentially malicious input
     if (containsMaliciousContent(name + email + phone + message)) {
       return NextResponse.json(
         { success: false, error: 'Malicious script detected.' },
@@ -45,13 +44,12 @@ export async function POST(request: Request) {
       );
     }
 
-    // Determine which reCAPTCHA secret to use
-    const isLikelyV2 = token.length < 100; // heuristic
+    // Use v2 or v3 secret based on token length (heuristic)
+    const isLikelyV2 = token.length < 100;
     const secretKey = isLikelyV2
       ? process.env.RECAPTCHA_V2_SECRET_KEY
       : process.env.RECAPTCHA_SECRET_KEY;
 
-    // Verify reCAPTCHA
     const recaptchaVerifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -67,7 +65,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Trigger v2 fallback if low score in v3
     if ('score' in recaptchaData && recaptchaData.score < 0.5) {
       return NextResponse.json({
         success: false,
@@ -76,7 +73,6 @@ export async function POST(request: Request) {
       }, { status: 200 });
     }
 
-    // Send email
     await resend.emails.send({
       from: process.env.MAIL_SENDER!,
       to: process.env.MAIL_RECEIVER!,
@@ -94,10 +90,16 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message =
+      error instanceof Error
+        ? error.message
+        : typeof error === 'string'
+        ? error
+        : 'Internal error';
     console.error('Resend error:', error);
     return NextResponse.json(
-      { success: false, error: error.message || 'Internal error' },
+      { success: false, error: message },
       { status: 500 }
     );
   }
