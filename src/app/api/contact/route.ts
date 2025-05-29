@@ -27,16 +27,17 @@ export async function POST(request: Request) {
       email,
       phone = 'N/A',
       message,
-      'g-recaptcha-response': token,
     } = body;
 
-    if (!name || !email || !message || !token) {
+    // Basic validation
+    if (!name || !email || !message) {
       return NextResponse.json(
-        { success: false, error: 'Missing required fields or reCAPTCHA token.' },
+        { success: false, error: 'Missing required fields.' },
         { status: 400 }
       );
     }
 
+    // XSS/Malicious content check
     if (containsMaliciousContent(name + email + phone + message)) {
       return NextResponse.json(
         { success: false, error: 'Malicious script detected.' },
@@ -44,35 +45,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Use v2 or v3 secret based on token length (heuristic)
-    const isLikelyV2 = token.length < 100;
-    const secretKey = isLikelyV2
-      ? process.env.RECAPTCHA_V2_SECRET_KEY
-      : process.env.RECAPTCHA_SECRET_KEY;
-
-    const recaptchaVerifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `secret=${secretKey}&response=${token}`,
-    });
-
-    const recaptchaData = await recaptchaVerifyRes.json();
-
-    if (!recaptchaData.success) {
-      return NextResponse.json(
-        { success: false, error: 'reCAPTCHA failed verification.' },
-        { status: 403 }
-      );
-    }
-
-    if ('score' in recaptchaData && recaptchaData.score < 0.5) {
-      return NextResponse.json({
-        success: false,
-        error: 'low_score',
-        requireV2: true,
-      }, { status: 200 });
-    }
-
+    // Send Email via Resend
     await resend.emails.send({
       from: process.env.MAIL_SENDER!,
       to: process.env.MAIL_RECEIVER!,
@@ -97,6 +70,7 @@ export async function POST(request: Request) {
         : typeof error === 'string'
         ? error
         : 'Internal error';
+
     console.error('Resend error:', error);
     return NextResponse.json(
       { success: false, error: message },
