@@ -8,6 +8,7 @@ import Hero from '../../UI/Homepage/Design 3/Hero';
 // import Footer from '../../UI/Design 2/Footer';
 import Footer from '../../UI/Footer';
 import About from '../../UI/Homepage/Design 3/About';
+// import ImportantDates from '../../UI/ImportantDates/page';
 
 export default function HomePage() {
   return (
@@ -15,6 +16,9 @@ export default function HomePage() {
       <Header />
       <Hero/>
       <About/>
+      {/* Add other sections as needed */}
+      {/* <ImportantDates/> */}
+      {/* <Testimonials/> */}
       <Footer/>
     </main>
   );

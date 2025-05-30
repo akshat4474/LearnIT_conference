@@ -16,46 +16,50 @@ export default function Contact() {
 
           <form ref={formRef} className="space-y-5">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-1">Your Name</label>
+              <label htmlFor="name" className="block text-m font-medium mb-1">Your Name</label>
               <input
                 id="name"
                 name="name"
                 type="text"
                 required
-                className="w-full bg-white border border-gray-300 p-3 rounded placeholder-gray-500"
+                placeholder='Enter your name'
+                className="w-full bg-white border border-gray-300 p-3 rounded placeholder-gray-500 rounded-b-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-1">Your Email</label>
+              <label htmlFor="email" className="block text-m font-medium mb-1">Your Email</label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 required
-                className="w-full bg-white border border-gray-300 p-3 rounded placeholder-gray-500"
+                placeholder='Enter your email address'
+                className="w-full bg-white border border-gray-300 p-3 rounded placeholder-gray-500 rounded-b-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
               />
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-1">Your Phone Number (+91)</label>
+              <label htmlFor="phone" className="block text-m font-medium mb-1">Your Phone Number (+91)</label>
               <input
                 id="phone"
                 name="phone"
                 type="tel"
                 pattern="[0-9+ ]{7,15}"
-                className="w-full bg-white border border-gray-300 p-3 rounded placeholder-gray-500"
+                placeholder='Enter your phone number'
+                className="w-full bg-white border border-gray-300 p-3 rounded placeholder-gray-500 rounded-b-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-1">Message</label>
+              <label htmlFor="message" className="block text-m font-medium mb-1">Message</label>
               <textarea
                 id="message"
                 name="message"
                 rows={5}
                 required
-                className="w-full bg-white border border-gray-300 p-3 rounded placeholder-gray-500"
+                placeholder='Type your message here...'
+                className="w-full bg-white border border-gray-300 p-3 rounded placeholder-gray-500 rounded-b-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
               />
             </div>
 
@@ -69,7 +73,7 @@ export default function Contact() {
           <h2 className="text-3xl font-semibold mb-2">Find Us</h2>
           <p className="mb-4 text-sm text-gray-700">Manipal University Jaipur, Rajasthan, India.</p>
           <iframe
-            className="w-full h-[400px] rounded border border-gray-300"
+            className="w-full h-[500px] rounded shadow-2xs border border-gray-300 hover:shadow-2xl"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.8772831810866!2d75.5652343!3d26.8438552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4850e05bee9b%3A0x1b8d67402d4eb863!2sManipal%20University%20Jaipur!5e0!3m2!1sen!2sin!4v1747753749907!5m2!1sen!2sin"
             allowFullScreen
             loading="lazy"
