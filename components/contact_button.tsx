@@ -54,7 +54,7 @@ const ContactButton: React.FC<ContactButtonProps> = ({
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       disabled={loading}
-      className={`flex items-center justify-center gap-2 px-6 py-3 rounded font-medium shadow-lg transition duration-300 ease-in-out disabled:opacity-70 disabled:cursor-not-allowed
+      className={`flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium shadow-2xl transition duration-300 ease-in-out disabled:opacity-70 disabled:cursor-not-allowed
         ${success ? 'bg-green-500 hover:bg-green-600' : 'bg-blue-600 hover:bg-blue-700'} text-white`}
     >
       <AnimatePresence mode="wait">
