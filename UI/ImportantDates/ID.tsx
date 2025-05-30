@@ -93,15 +93,15 @@ export default function ImportantDates() {
   return (
     <main className="min-h-screen bg-white">
       {/* Timeline Section */}
-      <div className="bg-gray-500 shadow-md border-b">
+      {/*<div className="bg-gray-500 shadow-md border-b">
         <div className="max-w-6xl mx-auto px-5 py-8">
           <h2 className="text-2xl font-bold text-white mb-6 text-center">Conference Timeline</h2>
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute top-8 left-0 right-0 h-1 bg-gradient-to-r from-red-700 via-orange-500 via-yellow-400 to-green-300 rounded-full"></div>
+            {/* <div className="absolute top-8 left-0 right-0 h-1 bg-gradient-to-r from-red-700 via-orange-500 via-yellow-400 to-green-300 rounded-full"></div> */}
             
             {/* Timeline Events */}
-            <div className="flex justify-between items-start relative">
+            {/* <div className="flex justify-between items-start relative">
               {timelineEvents.map((event, index) => (
                 <div key={index} className="flex flex-col items-center py-2">
                   <div className={`w-4 h-4 rounded-full ${
@@ -117,10 +117,10 @@ export default function ImportantDates() {
             </div>
           </div>
         </div>
-      </div>
+      </div>*/} 
 
-      {/* Main Content */}
-      <div className="max-w-5xl mx-auto px-6 py-12">
+      {/* Main Content - Redesigned Timeline Style */}
+      <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold bg-gradient-to-r from-gray-700 to-gray-500 bg-clip-text text-transparent mb-4">
             Important Dates
@@ -128,58 +128,85 @@ export default function ImportantDates() {
           <p className="text-xl text-gray-700">Mark your calendar for these key conference milestones</p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
-          {dates.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <div 
-                key={index}
-                className={`${getTypeColor(item.type)} border-2 rounded-xl p-6 transition-all duration-300 shadow-2xl hover:shadow-lg hover:scale-105 cursor-pointer`}
-              >
-                <div className="flex items-start space-x-4">
-                  <div className={`p-3 rounded-lg bg-white shadow-sm ${getIconColor(item.type)}`}>
-                    <Icon size={24} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                    <p className="text-sm opacity-80 mb-3">{item.description}</p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <Clock size={16} className="opacity-60" />
-                        <span className="font-semibold">{item.date}</span>
+        {/* Vertical Timeline */}
+        <div className="relative">
+          {/* Vertical Line */}
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gray-400 via-gray-500 to-gray-600"></div>
+          
+          {/* Timeline Items */}
+          <div className="space-y-8">
+            {dates.map((item, index) => {
+              const Icon = item.icon;
+              const isLeft = index % 2 === 0;
+              
+              return (
+                <div key={index} className="relative flex items-center">
+                  {/* Timeline Dot */}
+                  <div className="absolute left-6 w-4 h-4 bg-gradient-to-br from-slate-600 to-slate-800 rounded-full border-4 border-white shadow-lg z-10"></div>
+                  
+                  {/* Content */}
+                  <div className={`ml-20 ${isLeft ? 'mr-12' : 'ml-20'} flex-1`}>
+                    <div className="bg-white rounded-2xl shadow-lg border-l-4 border-slate-600 p-6 hover:shadow-xl transition-all duration-300 hover:scale-102">
+
+                      {/* Date Badge */}
+                      <div className="inline-block bg-gradient-to-r from-amber-600 to-red-700 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-md">
+                        {item.date}
+                      </div>
+                      
+                      {/* Content Area */}
+                      <div className="flex items-start space-x-4">
+                        <div className="p-3 rounded-xl bg-gray-50 shadow-sm">
+                          <Icon size={24} className={getIconColor(item.type)} />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
+                          <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
         {/* Additional Info Section */}
-        <div className="mt-16 bg-white rounded-2xl shadow-xl p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Registration Information</h2>
+        <div className="mt-16 bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-xl p-8 border border-gray-200">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Registration Information</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-green-700 flex items-center">
-                <DollarSign className="mr-2" size={20} />
+            <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-green-500">
+              <h3 className="text-xl font-semibold text-green-700 flex items-center mb-4">
+                <DollarSign className="mr-2" size={24} />
                 Author Registration
               </h3>
-              <div className="space-y-2 text-gray-500">
-                <p className="text-sm italic text-gray-800">* Includes conference access and proceedings</p>
-                <p>• Early Bird (by Mar 20): <span className="font-semibold text-green-600">299</span></p>
-                <p>• Late Registration (by Apr 1): <span className="font-semibold text-red-600">399</span></p>
+              <div className="space-y-3 text-gray-600">
+                <p className="text-sm italic text-gray-700 bg-gray-50 p-2 rounded">* Includes conference access and proceedings</p>
+                <div className="flex justify-between items-center p-2 bg-green-50 rounded">
+                  <span>Early Bird (by Mar 20):</span>
+                  <span className="font-bold text-green-600 text-lg">299</span>
+                </div>
+                <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                  <span>Late Registration (by Apr 1):</span>
+                  <span className="font-bold text-red-600 text-lg">399</span>
+                </div>
               </div>
             </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-blue-700 flex items-center">
-                <Users className="mr-2" size={20} />
+            <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-blue-500">
+              <h3 className="text-xl font-semibold text-blue-700 flex items-center mb-4">
+                <Users className="mr-2" size={24} />
                 Participant Registration
               </h3>
-              <div className="space-y-2 text-gray-500">
-                <p className="text-sm italic text-gray-800">* For non-author attendees</p>
-                <p>• Early Bird (by Mar 20): <span className="font-semibold text-green-600">199</span></p>
-                <p>• Late Registration (by Apr 1): <span className="font-semibold text-red-600">299</span></p>
+              <div className="space-y-3 text-gray-600">
+                <p className="text-sm italic text-gray-700 bg-gray-50 p-2 rounded">* For non-author attendees</p>
+                <div className="flex justify-between items-center p-2 bg-green-50 rounded">
+                  <span>Early Bird (by Mar 20):</span>
+                  <span className="font-bold text-green-600 text-lg">199</span>
+                </div>
+                <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                  <span>Late Registration (by Apr 1):</span>
+                  <span className="font-bold text-red-600 text-lg">299</span>
+                </div>
               </div>
             </div>
           </div>
@@ -188,4 +215,3 @@ export default function ImportantDates() {
     </main>
   );
 }
-
