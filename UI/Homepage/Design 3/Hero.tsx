@@ -34,7 +34,7 @@ export default function Hero() {
             Register Now
           </Link>
           <Link
-            href="/call-for-papers"
+            href="/CFP"
             className="border border-white hover:bg-white hover:text-purple-700 px-6 py-3 rounded-full text-lg font-medium"
           >
             Submit Abstract
