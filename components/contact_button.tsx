@@ -24,11 +24,21 @@ const ContactButton: React.FC<ContactButtonProps> = ({
 
     try {
       setLoading(true);
+
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
+
+      // Check content-type before parsing JSON
+      const contentType = res.headers.get('content-type') || '';
+      if (!res.ok || !contentType.includes('application/json')) {
+        const raw = await res.text(); // log HTML response for debugging
+        console.error('Unexpected non-JSON response:', raw.slice(0, 300));
+        alert('Unexpected server response. Please try again later.');
+        return;
+      }
 
       const result = await res.json();
 
