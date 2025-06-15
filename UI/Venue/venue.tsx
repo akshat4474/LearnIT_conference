@@ -20,7 +20,7 @@ const manipalImages = [
     alt: "Manipal University Logo"
   },
   {
-    url: "https://cdn.hercampus.com/SH6M70M3/as/x5mt6pmw4brgctfw2pv32t/mujjpegjpg_by_Vikram_Talepa?width=698&height=466&fit=crop&auto=webp&dpr=4",
+    url: "https://www.searchurcollege.com/exam/admin/search/gallery/college/col_913.jpg",
     alt: "Manipal University Aerial View"
   }
 ] as const;
@@ -52,23 +52,7 @@ const attractions = [
   }
 ] as const;
 
-const transportModes = [
-  {
-    mode: "By Air",
-    icon: "✈️",
-    details: "Jaipur International Airport (JAI) is well-connected to major cities. Regular flights from Delhi, Mumbai, and Bangalore."
-  },
-  {
-    mode: "By Train",
-    icon: "🚂",
-    details: "Jaipur Junction Railway Station is a major railway hub with excellent connectivity across India."
-  },
-  {
-    mode: "By Road",
-    icon: "🚗",
-    details: "Well-connected by highways. Regular bus services and convenient taxi services available throughout the city."
-  }
-] as const;
+
 
 const heritageSites = [
   {
@@ -335,31 +319,13 @@ export default function VenuePage() {
                     <h4 className="font-semibold text-gray-900 mb-3">Distance</h4>
                     <p className="text-gray-600">25 mins from Airport<br/>30 mins from City Center</p>
                   </div>
-                </div>
-
-                {/* Navigation Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a 
-                    href="https://maps.google.com/?q=Manipal+University+Jaipur"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-6 py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors group"
-                  >
-                    <svg 
-                      className="w-5 h-5 transition-transform group-hover:scale-110" 
-                      viewBox="0 0 24 24" 
-                      fill="currentColor"
-                    >
-                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                    </svg>
-                    Open in Google Maps
-                  </a>
-                  
+                </div>                {/* Navigation Button */}
+                <div className="flex justify-center">
                   <a 
                     href="https://maps.google.com/?daddr=Manipal+University+Jaipur"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-6 py-3 bg-white text-pink-600 border-2 border-pink-600 rounded-lg hover:bg-pink-50 transition-colors group"
+                    className="flex items-center justify-center gap-2 px-6 py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors group"
                   >
                     <svg 
                       className="w-5 h-5 transition-transform group-hover:scale-110" 
@@ -408,14 +374,13 @@ export default function VenuePage() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {attractions.map((attraction, index) => (
-              <motion.div
+            {attractions.map((attraction, index) => (              <motion.div
                 key={index}
                 variants={fadeInUp}
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
-                className="group cursor-pointer"
+                className="group"
               >
                 <div className="relative h-[300px] rounded-xl overflow-hidden">
                   <Image
@@ -425,9 +390,25 @@ export default function VenuePage() {
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-0 p-6">
+                    <div className="absolute bottom-0 p-6 w-full">
                       <h3 className="text-xl font-semibold text-white">{attraction.name}</h3>
-                      <p className="text-white/80 mt-2">{attraction.description}</p>
+                      <p className="text-white/80 mt-2 mb-4">{attraction.description}</p>
+                      <a 
+                        href={`https://maps.google.com/?daddr=${encodeURIComponent(attraction.name + ' Jaipur')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors text-sm"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <svg 
+                          className="w-4 h-4" 
+                          viewBox="0 0 24 24" 
+                          fill="currentColor"
+                        >
+                          <path d="M21.71 11.29l-9-9a.996.996 0 00-1.41 0l-9 9a.996.996 0 000 1.41l9 9c.39.39 1.02.39 1.41 0l9-9a.996.996 0 000-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/>
+                        </svg>
+                        Get Directions
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -480,29 +461,44 @@ export default function VenuePage() {
                   <h3 className="text-3xl font-bold text-gray-900">{site.name}</h3>
                   <p className="text-gray-600 text-lg leading-relaxed">
                     {site.description}
-                  </p>
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-900">Key Highlights:</h4>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {site.highlights.map((highlight, i) => (
-                        <li key={i} className="flex items-center space-x-2 text-gray-600">
-                          <svg className="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                          </svg>
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  </p>                  <div className="space-y-6">
+                    <div className="space-y-3">
+                      <h4 className="font-semibold text-gray-900">Key Highlights:</h4>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {site.highlights.map((highlight, i) => (
+                          <li key={i} className="flex items-center space-x-2 text-gray-600">
+                            <svg className="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                            </svg>
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <a 
+                      href={`https://maps.google.com/?daddr=${encodeURIComponent(site.name + ' Jaipur')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors"
+                    >
+                      <svg 
+                        className="w-5 h-5" 
+                        viewBox="0 0 24 24" 
+                        fill="currentColor"
+                      >
+                        <path d="M21.71 11.29l-9-9a.996.996 0 00-1.41 0l-9 9a.996.996 0 000 1.41l9 9c.39.39 1.02.39 1.41 0l9-9a.996.996 0 000-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/>
+                      </svg>
+                      Get Directions
+                    </a>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Getting There */}
-      <section className="py-24 bg-[#fdfbf7]">
+      </section>      {/* Getting There */}
+      <section className="py-24 bg-gradient-to-b from-[#fdfbf7] via-[#fff3e6] to-[#ffe4e4]">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -510,22 +506,102 @@ export default function VenuePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Getting There</h2>
-            <div className="w-24 h-1 bg-pink-600 mx-auto"></div>
+            <span className="text-[#D1548B] font-medium text-sm uppercase tracking-wider">Travel Information</span>
+            <h2 className="text-4xl font-bold text-[#2D3047] mt-2 mb-4">Getting to the Conference</h2>
+            <div className="w-24 h-1 bg-[#D1548B] mx-auto"></div>
+            <p className="mt-6 text-gray-600 text-lg max-w-2xl mx-auto">
+              Multiple convenient transportation options are available to reach Manipal University Jaipur
+            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {transportModes.map((transport, index) => (
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                mode: "By Air",
+                icon: (                  <svg className="w-10 h-10 text-[#D1548B]" viewBox="0 0 122.88 122.88" fill="currentColor">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M16.63,105.75c0.01-4.03,2.3-7.97,6.03-12.38L1.09,79.73c-1.36-0.59-1.33-1.42-0.54-2.4l4.57-3.9
+                      c0.83-0.51,1.71-0.73,2.66-0.47l26.62,4.5l22.18-24.02L4.8,18.41c-1.31-0.77-1.42-1.64-0.07-2.65l7.47-5.96l67.5,18.97L99.64,7.45
+                      c6.69-5.79,13.19-8.38,18.18-7.15c2.75,0.68,3.72,1.5,4.57,4.08c1.65,5.06-0.91,11.86-6.96,18.86L94.11,43.18l18.97,67.5
+                      l-5.96,7.47c-1.01,1.34-1.88,1.23-2.65-0.07L69.43,66.31L45.41,88.48l4.5,26.62c0.26,0.94,0.05,1.82-0.47,2.66l-3.9,4.57
+                      c-0.97,0.79-1.81,0.82-2.4-0.54l-13.64-21.57c-4.43,3.74-8.37,6.03-12.42,6.03C16.71,106.24,16.63,106.11,16.63,105.75
+                      L16.63,105.75z"/>
+                  </svg>
+                ),
+                details: "Jaipur International Airport (JAI) is well-connected to major cities",
+                distance: "25 mins from venue",
+                tips: ["Direct flights from Delhi, Mumbai, Bangalore", "Taxi services available at airport", "Pre-book airport transfers"],
+                mapsLink: "https://maps.google.com/?daddr=Jaipur+International+Airport",
+                bgColor: "bg-gradient-to-br from-white via-[#FFF8F5] to-[#FFE4E4]",
+                borderColor: "border-l-[#D1548B]"
+              },
+              {
+                mode: "By Train",
+                icon: (
+                  <svg className="w-10 h-10 text-[#FF6B35]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 4c-3.86 0-7 .11-7 2.67v8.66C5 17.89 8.14 18 12 18s7-.11 7-2.67V6.67C19 4.11 15.86 4 12 4zm0 11.33c-1.84 0-3.33-1.49-3.33-3.33S10.16 8.67 12 8.67s3.33 1.49 3.33 3.33-1.49 3.33-3.33 3.33zm0-4.66c-.74 0-1.33.59-1.33 1.33s.59 1.33 1.33 1.33 1.33-.59 1.33-1.33-.59-1.33-1.33-1.33zM6 6.67c0-.44 2.06-1.33 6-1.33s6 .89 6 1.33v1.33H6V6.67z"/>
+                    <path d="M17 20H7l-2 2h14z"/>
+                  </svg>
+                ),
+                details: "Jaipur Junction Railway Station is a major railway hub",
+                distance: "30 mins from venue",
+                tips: ["Regular trains from major cities", "Station code: JP", "Auto & taxi stands available"],
+                mapsLink: "https://maps.google.com/?daddr=Jaipur+Junction+Railway+Station",
+                bgColor: "bg-gradient-to-br from-white via-[#FFF8F0] to-[#FFE4D6]",
+                borderColor: "border-l-[#FF6B35]"
+              },
+              {
+                mode: "By Road",
+                icon: (
+                  <svg className="w-10 h-10 text-[#004E89]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-5h14v5z"/>
+                    <circle cx="7.5" cy="14.5" r="1.5"/>
+                    <circle cx="16.5" cy="14.5" r="1.5"/>
+                  </svg>
+                ),
+                details: "Well-connected by highways and expressways",
+                distance: "Located on Jaipur-Ajmer Highway",
+                tips: ["Regular bus services", "Ample parking at venue", "Major highways: NH 48, NH 21"],
+                mapsLink: "https://maps.google.com/?daddr=Manipal+University+Jaipur",
+                bgColor: "bg-gradient-to-br from-white via-[#F5F9FF] to-[#E4EFFF]",
+                borderColor: "border-l-[#004E89]"
+              }
+            ].map((transport, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
-                className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                className={`${transport.bgColor} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border-l-4 ${transport.borderColor}`}
               >
-                <div className="text-4xl mb-4">{transport.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{transport.mode}</h3>
-                <p className="text-gray-600">{transport.details}</p>
+                <div className="p-8">
+                  <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">{transport.icon}</div>
+                  <h3 className="text-xl font-semibold text-[#2D3047] mb-2">{transport.mode}</h3>
+                  <p className="text-gray-600 mb-4">{transport.details}</p>
+                  <div className="inline-block px-3 py-1 bg-white/50 backdrop-blur-sm text-[#2D3047] rounded-full text-sm font-medium mb-4 border border-current/10">
+                    {transport.distance}
+                  </div>
+                  <ul className="space-y-2 mb-6">
+                    {transport.tips.map((tip, i) => (
+                      <li key={i} className="flex items-start space-x-2 text-gray-600 text-sm">
+                        <svg className="w-4 h-4 text-current mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                        </svg>
+                        <span>{tip}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a 
+                    href={transport.mapsLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-current hover:text-current/80 transition-colors text-sm font-medium"
+                  >
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M21.71 11.29l-9-9a.996.996 0 00-1.41 0l-9 9a.996.996 0 000 1.41l9 9c.39.39 1.02.39 1.41 0l9-9a.996.996 0 000-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/>
+                    </svg>
+                    View on Maps
+                  </a>
+                </div>
               </motion.div>
             ))}
           </div>
