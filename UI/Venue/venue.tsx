@@ -195,12 +195,19 @@ export default function VenuePage() {
               transition={{ delay: 0.9 }}
               className="flex gap-4 pt-8"
             >
-              <button className="px-8 py-4 bg-pink-600 hover:bg-pink-700 text-white rounded-full font-medium transition-transform hover:scale-105 shadow-lg">
+              <a
+                href='/Dates' 
+                className="px-8 py-4 bg-pink-600 hover:bg-pink-700 text-white rounded-full font-medium transition-transform hover:scale-105 shadow-lg"
+                >
                 View Schedule
-              </button>
-              <button className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-full font-medium backdrop-blur-md transition-transform hover:scale-105 border border-white/20">
+              </a>
+              <a
+                href="#venue"
+                className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-full font-medium backdrop-blur-md transition-transform hover:scale-105 border border-white/20 scroll-smooth"
+              >
                 Explore Venue
-              </button>
+              </a>
+
             </motion.div>
 
             <motion.div
@@ -231,7 +238,7 @@ export default function VenuePage() {
       </div>
 
       {/* Conference Venue Section */}
-      <section className="py-24 bg-[#fdfbf7]">
+      <section id = "venue" className="py-24 bg-[#fdfbf7]">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
