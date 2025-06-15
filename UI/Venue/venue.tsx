@@ -164,7 +164,7 @@ export default function VenuePage() {
             </h1>
 
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-2xl drop-shadow-md">
-              Where ancient heritage meets modern innovation, in the heart of Rajasthan's majestic Pink City.
+              Where ancient heritage meets modern innovation, in the heart of Rajasthan&apos;s majestic Pink City.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 pt-8">
