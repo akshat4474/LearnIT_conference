@@ -16,11 +16,11 @@ const manipalImages = [
     alt: "Manipal University Jaipur Campus"
   },
   {
-    url: "/MUJ_LOGO.webp",
+    url: "https://manipalblog.com/wp-content/smush-webp/2015/06/MUJ-Jaipur-Campus.jpg.webp",
     alt: "Manipal University Logo"
   },
   {
-    url: "/jaipur_city.webp",
+    url: "https://cdn.hercampus.com/SH6M70M3/as/x5mt6pmw4brgctfw2pv32t/mujjpegjpg_by_Vikram_Talepa?width=698&height=466&fit=crop&auto=webp&dpr=4",
     alt: "Manipal University Aerial View"
   }
 ] as const;
@@ -38,17 +38,17 @@ const attractions = [
   {
     name: "Hawa Mahal",
     description: "The iconic Palace of Winds, featuring 953 windows and intricate architecture",
-    image: "/Jaipur_illustration2.webp"
+    image: "https://theheritageart.com/wp-content/uploads/2022/11/hawa-mahal.jpg"
   },
   {
     name: "City Palace",
     description: "A stunning blend of Rajasthani and Mughal architecture in the heart of Jaipur",
-    image: "/Jaipur_Illustration.webp"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Jaipur_03-2016_22_City_Palace_complex.jpg/960px-Jaipur_03-2016_22_City_Palace_complex.jpg"
   },
   {
     name: "Amber Fort",
     description: "Majestic fort complex showcasing the grandeur of Rajput architecture",
-    image: "/jaipur_city.webp"
+    image: "https://treeofliferesorts.com/wp-content/uploads/2022/09/beautifoul-amber-fort-near-jaipur-city-india-rajasthan_431724-2850.jpg"
   }
 ] as const;
 
@@ -76,56 +76,42 @@ const heritageSites = [
     period: "16th Century",
     description: "Built in 1592 by Raja Man Singh I, Amber Fort is known for its artistic Hindu style elements with intricate mirror work, elaborate frescoes, and the stunning Sheesh Mahal. The fort&apos;s architecture showcases a perfect blend of Rajput and Mughal styles.",
     highlights: ["Sheesh Mahal (Palace of Mirrors)", "Diwan-i-Aam", "Sukh Niwas"],
-    image: "/jaipur_city.webp"
+    image: "https://treeofliferesorts.com/wp-content/uploads/2022/09/beautifoul-amber-fort-near-jaipur-city-india-rajasthan_431724-2850.jpg"
   },
   {
     name: "Hawa Mahal",
     period: "18th Century",
     description: "Constructed in 1799 by Maharaja Sawai Pratap Singh, this five-story palace is made of red and pink sandstone. The 953 small windows (jharokhas) were designed to allow royal ladies to observe street festivals while remaining unseen.",
     highlights: ["Unique Architecture", "953 Jharokhas", "Natural Air Conditioning"],
-    image: "/Jaipur_illustration2.webp"
+    image: "https://theheritageart.com/wp-content/uploads/2022/11/hawa-mahal.jpg"
   },
   {
     name: "City Palace",
     period: "Early 18th Century",
     description: "Built between 1729 and 1732 by Sawai Jai Singh II, the City Palace complex includes the Chandra Mahal and Mubarak Mahal. It represents the finest blend of Rajasthani and Mughal architecture, showcasing the grandeur of Jaipur&apos;s royal family.",
     highlights: ["Chandra Mahal", "Mubarak Mahal", "Diwan-i-Khas"],
-    image: "/Jaipur_Illustration.webp"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Jaipur_03-2016_22_City_Palace_complex.jpg/960px-Jaipur_03-2016_22_City_Palace_complex.jpg"
   },
   {
     name: "Jantar Mantar",
     period: "18th Century",
     description: "Built in 1734 by Maharaja Sawai Jai Singh II, Jantar Mantar is a UNESCO World Heritage site featuring the world&apos;s largest stone sundial. This astronomical observatory complex houses 19 architectural astronomical instruments.",
     highlights: ["Samrat Yantra (The Supreme Instrument)", "Rashivalaya Yantra", "Jai Prakash Yantra"],
-    image: "/jaipur_city.webp"
-  },
-  {
-    name: "Nahargarh Fort",
-    period: "18th Century",
-    description: "Perched on the Aravalli Hills, Nahargarh Fort was built in 1734 as a retreat palace. Originally named Sudarshangarh, it formed a strong defense ring for the city along with Amber Fort and Jaigarh Fort.",
-    highlights: ["Madhavendra Bhawan", "Sunset View Point", "Wax Museum"],
-    image: "/Jaipur_illustration2.webp"
-  },
-  {
-    name: "Jaigarh Fort",
-    period: "18th Century",
-    description: "Built in 1726 to protect Amber Fort, Jaigarh Fort houses the world&apos;s largest cannon on wheels, the Jaivana. The fort was never conquered and served as a center of artillery production for the Rajputs.",
-    highlights: ["Jaivana Cannon", "Arms Museum", "Persian Water System"],
-    image: "/Jaipur_Illustration.webp"
+    image: "https://www.trawell.in/admin/images/upload/151648398Jaipur_Jantar_Mantar_Main.jpg"
   },
   {
     name: "Albert Hall Museum",
     period: "19th Century",
     description: "Built in 1876, this oldest museum in Rajasthan showcases a rare collection of artifacts including paintings, jewelry, carpets, ivory items, crystal works, and metal sculptures. Its Indo-Saracenic architecture is a remarkable example of colonial design.",
     highlights: ["Egyptian Mummy", "Persian Golden Carpet", "Ethnic Collections"],
-    image: "/jaipur_city.webp"
+    image: "https://yometro.com/images/places/albert-hall-museum.jpg"
   },
   {
     name: "Galtaji Temple",
     period: "18th Century",
     description: "Also known as the Monkey Temple, this ancient pilgrimage site features a series of temples built within a narrow crevice in the Aravalli Hills. The complex includes natural springs and seven holy water tanks.",
     highlights: ["Natural Springs", "Ancient Sanskrit Texts", "Temple Architecture"],
-    image: "/Jaipur_illustration2.webp"
+    image: "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1031572588_20200219165610_20200219165630.jpg"
   }
 ] as const;
 
@@ -155,7 +141,7 @@ export default function VenuePage() {
       {/* Hero Section */}
       <div className="relative min-h-screen w-full flex items-center">
         <Image
-          src="/jaipur_city.webp"
+          src="https://plus.unsplash.com/premium_photo-1661962404003-e0ca40da40ef?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8amFpcHVyfGVufDB8fDB8fHww"
           alt="Jaipur City"
           fill
           className="object-cover"
@@ -339,16 +325,51 @@ export default function VenuePage() {
                 Set against the backdrop of the Aravalli hills, Manipal University Jaipur offers a perfect blend 
                 of modern infrastructure and traditional architecture. Our state-of-the-art facilities ensure 
                 a seamless conference experience.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-6">
-                <div className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                  <h4 className="font-semibold text-gray-900 mb-3">Location</h4>
-                  <p className="text-gray-600">Dehmi Kalan, Near GVK Toll Plaza, Jaipur-Ajmer Expressway</p>
+              </p>              <div className="space-y-6">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <h4 className="font-semibold text-gray-900 mb-3">Location</h4>
+                    <p className="text-gray-600">Dehmi Kalan, Near GVK Toll Plaza, Jaipur-Ajmer Expressway</p>
+                  </div>
+                  <div className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <h4 className="font-semibold text-gray-900 mb-3">Distance</h4>
+                    <p className="text-gray-600">25 mins from Airport<br/>30 mins from City Center</p>
+                  </div>
                 </div>
-                <div className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                  <h4 className="font-semibold text-gray-900 mb-3">Distance</h4>
-                  <p className="text-gray-600">25 mins from Airport<br/>30 mins from City Center</p>
+
+                {/* Navigation Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a 
+                    href="https://maps.google.com/?q=Manipal+University+Jaipur"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-6 py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors group"
+                  >
+                    <svg 
+                      className="w-5 h-5 transition-transform group-hover:scale-110" 
+                      viewBox="0 0 24 24" 
+                      fill="currentColor"
+                    >
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    Open in Google Maps
+                  </a>
+                  
+                  <a 
+                    href="https://maps.google.com/?daddr=Manipal+University+Jaipur"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-6 py-3 bg-white text-pink-600 border-2 border-pink-600 rounded-lg hover:bg-pink-50 transition-colors group"
+                  >
+                    <svg 
+                      className="w-5 h-5 transition-transform group-hover:scale-110" 
+                      viewBox="0 0 24 24" 
+                      fill="currentColor"
+                    >
+                      <path d="M21.71 11.29l-9-9a.996.996 0 00-1.41 0l-9 9a.996.996 0 000 1.41l9 9c.39.39 1.02.39 1.41 0l9-9a.996.996 0 000-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/>
+                    </svg>
+                    Get Directions
+                  </a>
                 </div>
               </div>
 
