@@ -63,32 +63,6 @@ export default function About() {
           />
         </div>
       </div>
-      {/* Places & Experiences Section */}
-      <div className="max-w-7xl mx-auto mt-24">
-        <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-          Places to Visit in Jaipur
-        </h3>
-        <ul className="list-disc list-inside text-gray-800 text-lg space-y-1 mb-12">
-          <li><strong>Amber Fort</strong> – Majestic hilltop fortress with panoramic views and royal courtyards</li>
-          <li><strong>City Palace</strong> – Historic royal residence with museums and courtyards</li>
-          <li><strong>Hawa Mahal</strong> – Iconic façade with 953 windows, known as the Palace of Winds</li>
-          <li><strong>Jantar Mantar</strong> – UNESCO heritage site and ancient astronomical observatory</li>
-          <li><strong>Birla Mandir</strong> – Peaceful marble temple dedicated to Lord Vishnu and Goddess Lakshmi</li>
-          <li><strong>Govind Dev Ji Temple</strong> – An important Krishna temple with vibrant spiritual energy</li>
-          <li><strong>Nahargarh Fort</strong> – Scenic fort offering sunset views over the city</li>
-          <li><strong>Albert Hall Museum</strong> – Indo-Saracenic architecture and rich art collections</li>
-        </ul>
-
-        <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-          Key Attractions & Experiences
-        </h3>
-        <ul className="list-disc list-inside text-gray-800 text-lg space-y-1">
-          <li>Exploring local markets like Johari Bazaar and Bapu Bazaar for jewelry, textiles, and crafts</li>
-          <li>Enjoying traditional Rajasthani dishes like <em>dal bati churma</em>, <em>laal maas</em>, and <em>ghewar</em></li>
-          <li>Experiencing the Jaipur Literature Festival for culture and global ideas</li>
-          <li>Hot air balloon rides for aerial views of forts and the Aravallis</li>
-        </ul>
-      </div>
     </section>
   );
 }
