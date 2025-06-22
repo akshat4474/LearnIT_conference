@@ -5,6 +5,7 @@ import Image from 'next/image';
 export default function About() {
   return (
     <section className="w-full bg-[#FFFDF6] py-20 px-6 md:px-16 lg:px-32 space-y-24">
+      
       {/* Manipal University Jaipur Section */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>

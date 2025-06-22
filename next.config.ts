@@ -11,7 +11,8 @@ const nextConfig: NextConfig = {  images: {    domains: [
       "yometro.com",
       "www.holidify.com",
       "plus.unsplash.com",
-      "placehold.co"
+      "placehold.co",
+      "icon2.cleanpng.com"
     ],
   },
 };

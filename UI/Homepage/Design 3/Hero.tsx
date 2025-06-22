@@ -20,8 +20,8 @@ export default function Hero() {
 
       {/* Hero content */}
       <div className="relative z-20 flex flex-col items-start justify-center h-full px-6 sm:px-12 lg:px-32 text-white">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
-          IT Conference 2025
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+          SMART SYSTEMS: INNOVATIONS IN COMPUTING
         </h1>
         <p className="text-xl sm:text-2xl md:text-3xl font-light mb-8 max-w-2xl">
           Empowering Research. Celebrating Innovation.
@@ -39,6 +39,33 @@ export default function Hero() {
           >
             Submit Abstract
           </Link>
+        </div>
+      </div>
+      {/* Publication Partner */}
+      <div
+        className="absolute z-30 flex items-center gap-3
+        right-8 bottom-8
+        sm:right-8 sm:bottom-8
+        md:right-12 md:bottom-12
+        lg:right-16 lg:bottom-16
+        max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:bottom-20
+        rounded-xl px-4 py-2 bg-gray-800
+        shadow-lg backdrop-blur-sm"
+        style={{ boxShadow: '0 4px 24px 0 rgba(0,0,0,0.35)' }}
+      >
+        <span className="text-white text-base font-semibold drop-shadow-md">
+          Publication Partner:
+        </span>
+        <div className="w-12 h-12 flex items-center justify-center overflow-hidden bg-transparent">
+          <Image
+        src="https://icon2.cleanpng.com/20180711/hr/kisspng-academic-journal-springer-science-business-media-p-springer-5b4675ff028096.4745617715313443830103.jpg"
+        alt="DEV Publication Partner"
+        width={48}
+        height={48}
+        className="object-contain drop-shadow-lg h-18 w-12"
+        priority
+        style={{ background: 'transparent' }}
+          />
         </div>
       </div>
       {/* Scroll down indicator */}
