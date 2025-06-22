@@ -43,30 +43,20 @@ export default function Hero() {
       </div>
       {/* Publication Partner */}
       <div
-        className="absolute z-30 flex items-center gap-3
-        right-8 bottom-8
-        sm:right-8 sm:bottom-8
-        md:right-12 md:bottom-12
-        lg:right-16 lg:bottom-16
-        max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:bottom-20
-        rounded-xl px-4 py-2 bg-gray-800
-        shadow-lg backdrop-blur-sm"
-        style={{ boxShadow: '0 4px 24px 0 rgba(0,0,0,0.35)' }}
+        className="absolute z-30 bottom-6 right-6
+        sm:bottom-10 sm:right-10
+        md:bottom-14 md:right-14
+        lg:bottom-20 lg:right-20
+        max-sm:left-1/2 max-sm:-translate-x-1/2"
       >
-        <span className="text-white text-base font-semibold drop-shadow-md">
-          Publication Partner:
-        </span>
-        <div className="w-12 h-12 flex items-center justify-center overflow-hidden bg-transparent">
-          <Image
-        src="https://icon2.cleanpng.com/20180711/hr/kisspng-academic-journal-springer-science-business-media-p-springer-5b4675ff028096.4745617715313443830103.jpg"
-        alt="DEV Publication Partner"
-        width={48}
-        height={48}
-        className="object-contain drop-shadow-lg h-18 w-12"
-        priority
-        style={{ background: 'transparent' }}
-          />
-        </div>
+        <Image
+          src="/Springer_Logo.png"
+          alt="Springer Logo"
+          width={120}
+          height={60}
+          className="object-contain drop-shadow-lg"
+          priority
+        />
       </div>
       {/* Scroll down indicator */}
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
