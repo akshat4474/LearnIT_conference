@@ -20,8 +20,8 @@ export default function Hero() {
 
       {/* Hero content */}
       <div className="relative z-20 flex flex-col items-start justify-center h-full px-6 sm:px-12 lg:px-32 text-white">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
-          IT Conference 2025
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+          SMART SYSTEMS: INNOVATIONS IN COMPUTING
         </h1>
         <p className="text-xl sm:text-2xl md:text-3xl font-light mb-8 max-w-2xl">
           Empowering Research. Celebrating Innovation.
@@ -40,6 +40,23 @@ export default function Hero() {
             Submit Abstract
           </Link>
         </div>
+      </div>
+      {/* Publication Partner */}
+      <div
+        className="absolute z-30 bottom-6 right-6
+        sm:bottom-10 sm:right-10
+        md:bottom-14 md:right-14
+        lg:bottom-20 lg:right-20
+        max-sm:left-1/2 max-sm:-translate-x-1/2"
+      >
+        <Image
+          src="/Springer_Logo.png"
+          alt="Springer Logo"
+          width={120}
+          height={60}
+          className="object-contain drop-shadow-lg"
+          priority
+        />
       </div>
       {/* Scroll down indicator */}
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
