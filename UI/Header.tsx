@@ -18,8 +18,8 @@ const navLinks: NavLink[] = [
   {
     label: 'Committee',
     children: [
-      { href: '/committee/organizing', label: 'Organizing Members' },
-      { href: '/committee/technical', label: 'Technical Committee' }
+      { href: '/Committee/organizing', label: 'Organizing Members' },
+      { href: '/Committee/technical', label: 'Technical Committee' }
     ],
   },
   { href: '/Invitees', label: 'Invitees' },
